@@ -12,12 +12,13 @@ import {
 } from "../../../public/assets/index";
 import SidebarCards from "../../components/sidebar/SidebarCards";
 
-function Sidebar({ svg, text }) {
+function Sidebar() {
   return (
     <div className="relative w-[256px] h-[1000px] bg-[#1D3557]">
       <Image
         className="w-[100px] h-[40px] mt-[10px] ml-[23px] cursor-pointer"
         src={logo}
+        alt="logo"
       />
       <SidebarIconSvg
         className={`absolute left-[210px] top-[15px] cursor-pointer`}
