@@ -24,7 +24,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`${expanded ? "relative w-[256px] h-auto bg-[#1D3557]" : "w-[55px] bg-[#1D3557]"}`}
+      className={`${expanded ? "relative w-[256px] h-auto bg-[#1D3557]" : "w-[55px] bg-[#1D3557]"} transition-all duration-200`}
     >
       <div className="h-[40px]">
         <Image
