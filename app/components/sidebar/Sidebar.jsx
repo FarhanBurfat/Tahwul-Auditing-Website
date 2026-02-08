@@ -11,43 +11,61 @@ import {
   SidebarUserSvg,
 } from "../../../public/assets/index";
 import SidebarCards from "../../components/sidebar/SidebarCards";
+import { SidebarContext } from "../context/SidebarContext";
+import { useContext } from "react";
 
 function Sidebar() {
+  const { expanded, setExpanded } = useContext(SidebarContext);
+
+  const handleToggled = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div className="relative w-[256px] h-[1000px] bg-[#1D3557]">
-      <Image
-        className="w-[100px] h-[40px] mt-[10px] ml-[23px] cursor-pointer"
-        src={logo}
-        alt="logo"
-      />
-      <SidebarIconSvg
-        className={`absolute left-[210px] top-[15px] cursor-pointer`}
-      />
+    <div
+      className={`${expanded ? "relative w-[256px] h-auto bg-[#1D3557]" : "w-[55px] bg-[#1D3557]"}`}
+    >
+      <div className="h-[40px]">
+        <Image
+          className={`${expanded ? "w-[100px] h-[40px] mt-[10px] ml-[23px] cursor-pointer" : "hidden"}`}
+          src={logo}
+          alt="logo"
+        />
+      </div>
+
+      <button onClick={handleToggled}>
+        <SidebarIconSvg
+          className={`${expanded ? "left-[235px]" : "left-[35px] rotate-180"} absolute  top-[15px] cursor-pointer`}
+        />
+      </button>
 
       <div className="mt-[26px]">
+        <div className="">
+          <SidebarCards
+            className="cursor-pointer bg-[#98AEC01A] border-1 border-black bg-white"
+            svg={<DashboardSvgIcon className={`cursor-pointer`} />}
+            text="Dashboard"
+          />
+        </div>
+
         <SidebarCards
-          className="cursor-pointer"
-          svg={<DashboardSvgIcon className={`ml-[12px] cursor-pointer`} />}
-          text="Dashboard"
-        />
-        <SidebarCards
-          svg={<SidebarPerspectiveSvg className={`ml-[12px] cursor-pointer`} />}
+          svg={<SidebarPerspectiveSvg className={`cursor-pointer`} />}
           text="Perspectives"
         />
         <SidebarCards
-          svg={<SidebarTasksSvg className={`ml-[12px] cursor-pointer`} />}
+          svg={<SidebarTasksSvg className={` cursor-pointer`} />}
           text="Tasks"
         />
         <SidebarCards
-          svg={<SidebarDocumentsSvg className={`ml-[12px] cursor-pointer`} />}
+          svg={<SidebarDocumentsSvg className={` cursor-pointer`} />}
           text="Documents"
         />
         <SidebarCards
-          svg={<SidebarReportsSvg className={`ml-[12px] cursor-pointer`} />}
+          svg={<SidebarReportsSvg className={` cursor-pointer`} />}
           text="Reports"
         />
         <SidebarCards
-          svg={<SidebarUserSvg className={`ml-[12px] cursor-pointer`} />}
+          svg={<SidebarUserSvg className={` cursor-pointer`} />}
           text="User & Roles"
         />
       </div>
