@@ -2,6 +2,7 @@ import React from "react";
 import ProgressPerspectiveCard from "../components/perspectives/ProgressPerspectiveCard";
 import leaderimg from "../../public/assets/icons/leaderimg.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 function page() {
   return (
@@ -64,9 +65,11 @@ function page() {
           <p className="text-[14px] text-[#1D3557] font-normal">Overview</p>
         </div>
 
-        <div className=" flex items-center justify-center w-[99px] ml-[6px] mt-[19px] h-[34px] rounded-[8px]">
-          <p className="text-[14px] text-[#1D3557] font-normal">Evidence</p>
-        </div>
+        <Link href="/perspective_evidence">
+          <div className=" flex items-center justify-center w-[99px] ml-[6px] mt-[19px] h-[34px] rounded-[8px]">
+            <p className="text-[14px] text-[#1D3557] font-normal">Evidence</p>
+          </div>
+        </Link>
       </div>
 
       <div className="w-[1136px] h-[538px] border border-[#E0E8ED] bg-[#FFFFFF] mt-[16px] ml-[24px] rounded-[10px]">

@@ -13,6 +13,7 @@ import {
 import SidebarCards from "../../components/sidebar/SidebarCards";
 import { SidebarContext } from "../context/SidebarContext";
 import { useContext } from "react";
+import Link from "next/link";
 
 function Sidebar() {
   const { expanded, setExpanded } = useContext(SidebarContext);
@@ -41,17 +42,22 @@ function Sidebar() {
 
       <div className="mt-[26px]">
         <div className="">
-          <SidebarCards
-            className="cursor-pointer bg-[#98AEC01A] border-1 border-black bg-white"
-            svg={<DashboardSvgIcon className={`cursor-pointer`} />}
-            text="Dashboard"
-          />
+          <Link href="/">
+            <SidebarCards
+              className="cursor-pointer bg-[#98AEC01A] border-1 border-black bg-white"
+              svg={<DashboardSvgIcon className={`cursor-pointer`} />}
+              text="Dashboard"
+            />
+          </Link>
         </div>
 
-        <SidebarCards
-          svg={<SidebarPerspectiveSvg className={`cursor-pointer`} />}
-          text="Perspectives"
-        />
+        <Link href="/perspectives">
+          <SidebarCards
+            svg={<SidebarPerspectiveSvg className={`cursor-pointer`} />}
+            text="Perspectives"
+          />
+        </Link>
+
         <SidebarCards
           svg={<SidebarTasksSvg className={` cursor-pointer`} />}
           text="Tasks"
